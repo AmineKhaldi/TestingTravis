@@ -10,4 +10,4 @@ compiler:
 
 script:
   - qemu-img create /tmp/ReactOS.img 2000M
-  - qemu -L . -m 256 -cdrom /tmp/bootcdregtest-70637.iso -hda /tmp/ReactOS.img -boot d -localtime -serial stdio
+  - qemu-system-i386 -L . -m 256 -cdrom /tmp/bootcdregtest-70637.iso -hda /tmp/ReactOS.img -boot d -localtime -serial stdio
