@@ -1,6 +1,6 @@
 before_script:
   - sudo apt-get update -qq
-  - sudo apt-get install -y qemu-kvm libvirt-bin
+  - sudo apt-get install -y qemu-kvm libvirt-bin seabios
   - wget http://iso.reactos.org/regtestcd/bootcdregtest-70637.iso -O /tmp/bootcdregtest-70637.iso
 
 language: c
