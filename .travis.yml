@@ -1,3 +1,8 @@
+sudo: required
+services:
+  - docker
+
+
 before_script:
   - sudo apt-get update -qq
   - sudo apt-get install -y qemu-kvm libvirt-bin seabios
@@ -10,4 +15,4 @@ compiler:
 
 script:
   - qemu-img create /tmp/ReactOS.img 2000M
-  - qemu-system-i386 -L . -m 256 -cdrom /tmp/bootcdregtest-70637.iso -hda /tmp/ReactOS.img -boot d -localtime -serial stdio
+  - qemu-system-i386 -m 512 -cdrom /tmp/bootcdregtest-70637.iso -hda /tmp/ReactOS.img -boot d -localtime -serial stdio
