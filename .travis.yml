@@ -1,0 +1,13 @@
+before_script:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y qemu-kvm libvirt-bin
+  - wget http://iso.reactos.org/regtestcd/bootcdregtest-70637.iso -O /tmp/bootcdregtest-70637.iso
+
+language: c
+
+compiler:
+  - gcc
+
+script:
+  - qemu-img create /tmp/ReactOS.img 2000M
+  - qemu -L . -m 256 -cdrom /tmp/bootcdregtest-70637.iso -hda /tmp/ReactOS.img -boot d -localtime -serial stdio
