@@ -16,8 +16,8 @@ compiler:
 script:
   - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
   - sudo qemu-img create /tmp/ros.img 2000M
-  - wget http://iso.reactos.org/regtestcd/bootcdregtest-70637.iso -O /tmp/bootcdregtest-70637.iso
-  - sudo virt-install -n ReactOS --disk path=/tmp/ros.img --ram=512 --os-type=linux --graphics vnc,listen=0.0.0.0 --network bridge=virbr0 --cdrom=/tmp/bootcdregtest-70637.iso --boot cdrom --serial pty
+  - virsh define /tmp/TestingTravis/reactos.xml && wget http://iso.reactos.org/regtestcd/bootcdregtest-70637.iso -O /tmp/bootcdregtest-70637.iso
+  #- sudo virt-install -n ReactOS --disk path=/tmp/ros.img --ram=512 --os-type=linux --graphics vnc,listen=0.0.0.0 --network bridge=virbr0 --cdrom=/tmp/bootcdregtest-70637.iso --boot cdrom --serial pty
   - svn checkout svn://svn.reactos.org/project-tools/trunk/sysreg2 /tmp/sysreg2
   - cd /tmp/sysreg2 && make
   - sudo /tmp/sysreg2/sysreg2 /tmp/TestingTravis/sysreg.xml

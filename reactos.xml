@@ -1,5 +1,6 @@
 <domain type='qemu' id='1'>
   <name>ReactOS</name>
+  <uuid>0ab69219-58c2-1e5c-6beb-fb29db74b0ae</uuid>
   <memory>262144</memory>
   <currentMemory>262144</currentMemory>
   <vcpu>1</vcpu>
