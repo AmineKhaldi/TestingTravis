@@ -10,6 +10,12 @@ compiler:
   - gcc
 
 script:
+  - instance=`pgrep VirtualBox | wc -l`
+    if [ "$instance" -eq "0" ]; then
+            echo Starting VirtualBox GUI
+            xvfb-run -a /usr/bin/VirtualBox &
+            sleep 10s
+    fi
   #- git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
   #- wget http://iso.reactos.org/regtestcd/bootcdregtest-70637.iso -O /tmp/bootcdregtest-70637.iso
   #- svn checkout svn://svn.reactos.org/project-tools/trunk/sysreg2 /tmp/sysreg2
