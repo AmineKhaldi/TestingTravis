@@ -6,7 +6,7 @@ sudo: required
 
 before_script:
   - sudo apt-get update -qq
-  - sudo apt-get install -y qemu-kvm libvirt-bin libvirt-dev seabios virtinst
+  - sudo apt-get install -y qemu-kvm libvirt-bin libvirt-dev seabios virtinst virt-viewer
   - wget http://iso.reactos.org/regtestcd/bootcdregtest-70637.iso -O /tmp/bootcdregtest-70637.iso
 
 language: c
@@ -20,5 +20,5 @@ script:
   - sudo virt-install -n ReactOS --disk path=/tmp/ReactOS.img --ram=512 --os-type=linux --graphics vnc,listen=0.0.0.0 --network bridge=virbr0 --cdrom=/tmp/bootcdregtest-70637.iso --boot cdrom
   - svn checkout svn://svn.reactos.org/project-tools/trunk/sysreg2 /tmp/sysreg2
   - cd /tmp/sysreg2 && make
-  - /tmp/sysreg2/sysreg2 /tmp/TestingTravis/sysreg.xml
+  - sudo /tmp/sysreg2/sysreg2 /tmp/TestingTravis/sysreg.xml
   #- qemu-system-i386 -m 512 -cdrom /tmp/bootcdregtest-70637.iso -hda /tmp/ReactOS.img -boot d -localtime -serial stdio -vga std -vnc :0
