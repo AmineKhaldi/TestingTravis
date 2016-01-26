@@ -18,10 +18,12 @@
     <emulator>/usr/bin/qemu-system-i386</emulator>
     <disk type='file' device='disk'>
       <source file='/tmp/ros.img'/>
+      <target dev='hda' />
       <!-- <target dev='hda' bus='ide'/> -->
     </disk>
     <disk type='file' device='cdrom'>
         <source file='/tmp/bootcdregtest-70637.iso'/>
+        <target dev='hdb' />
       <!-- <target dev='hdc' bus='ide'/> -->
       <readonly/>
     </disk>
