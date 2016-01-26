@@ -5,7 +5,7 @@
   <currentMemory>524288</currentMemory>
   <vcpu>1</vcpu>
   <os>
-    <type arch='x86_64' machine='pc'>hvm</type>
+    <type arch='i686' machine='pc'>hvm</type>
     <boot dev='cdrom'/>
   </os>
   <features>
@@ -18,13 +18,11 @@
     <emulator>/usr/bin/qemu-system-i386</emulator>
     <disk type='file' device='disk'>
       <source file='/tmp/ros.img'/>
-      <target dev='hda' />
-      <!-- <target dev='hda' bus='ide'/> -->
+      <target dev='hda' bus='ide'/>
     </disk>
     <disk type='file' device='cdrom'>
         <source file='/tmp/bootcdregtest-70637.iso'/>
-        <target dev='hdb' />
-      <!-- <target dev='hdc' bus='ide'/> -->
+        <target dev='hdc' bus='ide'/>
       <readonly/>
     </disk>
     <interface type='bridge'>
@@ -35,7 +33,7 @@
     </interface>
     <serial type='pty'></serial>
     <console type='pty' ></console>
-    <input type='tablet' bus='usb'/>
+    <!-- <input type='tablet' bus='usb'/> -->
     <input type='mouse' bus='ps2'/>
     <graphics type='vnc' port='5900' listen='0.0.0.0'/>
   </devices>
