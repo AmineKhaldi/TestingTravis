@@ -1,4 +1,5 @@
-#sudo: required
+sudo: required
+
 #services:
 #  - docker
 
@@ -17,5 +18,5 @@ script:
   - qemu-img create /tmp/ReactOS.img 2000M
   - svn checkout svn://svn.reactos.org/project-tools/trunk/sysreg2 /tmp/sysreg2
   - cd /tmp/sysreg2 && make
-  - /tmp/sysreg2/sysreg2 AmineKhaldi/TestingTravis/sysreg.xml
+  - /tmp/sysreg2/sysreg2 /home/travis/AmineKhaldi/TestingTravis/sysreg.xml
   #- qemu-system-i386 -m 512 -cdrom /tmp/bootcdregtest-70637.iso -hda /tmp/ReactOS.img -boot d -localtime -serial stdio -vga std -vnc :0
