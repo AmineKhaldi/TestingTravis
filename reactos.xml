@@ -1,4 +1,4 @@
-<domain type='qemu'>
+<domain type='qemu' id='1'>
   <name>ReactOS</name>
   <memory>262144</memory>
   <currentMemory>262144</currentMemory>
@@ -16,7 +16,7 @@
   <devices>
     <emulator>/usr/bin/qemu-system-i386</emulator>
     <disk type='file' device='disk'>
-      <source file='/opt/buildbot/kvmtest/ros.img'/>
+      <source file='/tmp/ros.img'/>
       <target dev='hda' bus='ide'/>
     </disk>
     <disk type='file' device='cdrom'>
