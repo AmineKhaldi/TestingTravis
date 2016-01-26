@@ -17,6 +17,7 @@ compiler:
 script:
   - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
   - qemu-img create /tmp/ReactOS.img 2000M
+  - virt-install -n ReactOS --disk path=/tmp/ReactOS.img --ram=512 --os-type=linux --graphics vnc,listen=0.0.0.0 --network bridge=br0
   - svn checkout svn://svn.reactos.org/project-tools/trunk/sysreg2 /tmp/sysreg2
   - cd /tmp/sysreg2 && make
   - /tmp/sysreg2/sysreg2 /tmp/TestingTravis/sysreg.xml
