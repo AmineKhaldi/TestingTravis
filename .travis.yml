@@ -16,7 +16,7 @@ compiler:
 
 script:
   - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
-  - qemu-img create /opt/buildbot/kvmtest/ros.img 2000M
+  - sudo qemu-img create /opt/buildbot/kvmtest/ros.img 2000M
   - sudo virt-install -n ReactOS --disk path=/opt/buildbot/kvmtest/ros.img --ram=512 --os-type=linux --graphics vnc,listen=0.0.0.0 --network bridge=virbr0 --cdrom=/tmp/bootcdregtest-70637.iso --boot cdrom
   - svn checkout svn://svn.reactos.org/project-tools/trunk/sysreg2 /tmp/sysreg2
   - cd /tmp/sysreg2 && make
