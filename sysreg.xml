@@ -4,7 +4,7 @@
 		<vm type="kvm"/>
 
 		<!-- kill the VM after n milliseconds without debug msg -->
-		<timeout ms="20000"/>
+		<timeout ms="40000"/>
 
 		<!-- kill the test process if it takes more than n seconds
 		     The VM will be killed even if it is still verbose -->
