@@ -4,7 +4,7 @@ before_script:
   - sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" >> /etc/apt/sources.list.d/virtualbox.list'
   - wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
   - sudo apt-get update -qq
-  - sudo apt-get install -y linux-headers-3.13.0-63-generic libvirt-dev virtualbox-5.0
+  - sudo apt-get install -y linux-headers-3.13.0-63-generic libvirt-bin libvirt-dev virtualbox-5.0
   #- sudo apt-get install -y qemu-kvm libvirt-bin libvirt-dev
   #- sudo apt-get install -q virtualbox --fix-missing
 
