@@ -22,8 +22,8 @@ script:
   - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
   - chmod +x /tmp/TestingTravis/vbox.sh
   - /tmp/TestingTravis/vbox.sh
-  - virsh -V
-  - sudo virsh -c vbox:///session
+  #- virsh -V
+  - sudo xvfb-run -a /usr/bin/VirtualBox & sudo virsh -c vbox:///session
   - wget http://iso.reactos.org/regtestcd/bootcdregtest-70637.iso -O /tmp/bootcdregtest-70637.iso
   - svn checkout svn://svn.reactos.org/project-tools/trunk/sysreg2 /tmp/sysreg2
   - cd /tmp/sysreg2 && make
