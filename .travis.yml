@@ -23,7 +23,7 @@ script:
   - chmod +x /tmp/TestingTravis/vbox.sh
   - /tmp/TestingTravis/vbox.sh
   - virsh -V
-  - virsh -c vbox:///session
+  - sudo virsh -c vbox:///session
   - wget http://iso.reactos.org/regtestcd/bootcdregtest-70637.iso -O /tmp/bootcdregtest-70637.iso
   - svn checkout svn://svn.reactos.org/project-tools/trunk/sysreg2 /tmp/sysreg2
   - cd /tmp/sysreg2 && make
