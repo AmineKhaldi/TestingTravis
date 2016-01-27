@@ -1,11 +1,10 @@
-<domain type='qemu' id='1'>
+<domain type='vbox'>
   <name>ReactOS</name>
   <uuid>0ab69219-58c2-1e5c-6beb-fb29db74b0ae</uuid>
   <memory>524288</memory>
-  <currentMemory>524288</currentMemory>
   <vcpu>1</vcpu>
   <os>
-    <type arch='i686' machine='pc'>hvm</type>
+    <type>hvm</type>
     <boot dev='cdrom'/>
   </os>
   <features>
@@ -15,7 +14,6 @@
   <on_reboot>destroy</on_reboot>
   <on_crash>destroy</on_crash>
   <devices>
-    <emulator>/usr/bin/qemu-system-i386</emulator>
     <disk type='file' device='disk'>
       <source file='/tmp/ros.img'/>
       <target dev='hda' bus='ide'/>
