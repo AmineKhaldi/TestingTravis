@@ -29,8 +29,9 @@ script:
   - sudo apt-get build-dep -y libvirt
   - dpkg-source -x libvirt*dsc
   - cd libvirt-1.2.2
-  - sudo ./configure --with-vbox --disable-dependency-tracking --enable-expensive-tests=no --disable-expensive-tests --with-test-suite=no --without-test-suite --enable-silent-rules --disable-nls
+  #- sudo ./configure --with-vbox --disable-dependency-tracking --enable-expensive-tests=no --disable-expensive-tests --with-test-suite=no --without-test-suite --enable-silent-rules --disable-nls
   #- sudo ./configure --help
+  - ./autogen.sh --system
   - sudo make -j 2
   - sudo make -j 2 install
   - sudo ldconfig
