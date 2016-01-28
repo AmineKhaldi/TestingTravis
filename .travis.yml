@@ -50,7 +50,7 @@ script:
   #- sudo dpkg -i libvirt-bin_1.2.2-0ubuntu13.1.16_amd64.deb libvirt0_1.2.2-0ubuntu13.1.16_amd64.deb
   - qemu-img create -f vmdk /tmp/ros.vmdk 2000M
   - sudo apt-get install -y expect
-  - wget https://download3.vmware.com/software/player/file/VMware-Player-6.0.2-1744117.x86_64.bundle -O /tmp/VMware.bundle
+  - wget https://download3.vmware.com/software/player/file/VMware-Player-6.0.6-2700073.x86_64.bundle -O /tmp/VMware.bundle
   - wget https://download3.vmware.com/software/player/file/VMware-VIX-1.13.0-1295980.x86_64.bundle -O /tmp/VMware-VIX.bundle
   - chmod +x /tmp/VMware.bundle
   - chmod +x /tmp/VMware-VIX.bundle

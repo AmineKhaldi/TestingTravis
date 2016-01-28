@@ -29,7 +29,7 @@
       <target dev='vnet0'/>
       <model type='vlance'/>
     </interface>
-    <serial type="unix"></serial>
+    <serial type="unix"><source mode="bind" path="/tmp/foo"/></serial>
     <!-- <console type='pty'></console> -->
     <!-- <input type='tablet' bus='usb'/> -->
     <input type='mouse' bus='ps2'/>
