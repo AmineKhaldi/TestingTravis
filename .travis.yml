@@ -24,7 +24,8 @@ compiler:
 script:
   #- sudo apt-get install -q linux-headers-3.13.0-63-generic
   #- sudo apt-get install -q virtualbox-5.0 --fix-missing
-  - sudo apt-get source -d libvirt
+  - sudo apt-get update -qq
+  - sudo apt-get source -y -d libvirt
   - sudo apt-get build-dep libvirt
   - dpkg-source -x libvirt*dsc
   - cd libvirt-1.2.2
