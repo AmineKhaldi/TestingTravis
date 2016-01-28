@@ -7,7 +7,7 @@ before_script:
   - sudo apt-get update -qq
   #- sudo apt-get install -y linux-headers-3.13.0-63-generic qemu libvirt-bin libvirt-dev virtualbox-5.0
   #- sudo apt-get install -y linux-headers-3.19.0-30-generic qemu libvirt-bin libvirt-dev virtualbox-5.0
-  - sudo apt-get install -y virtualbox-4.3 --fix-missing
+  - sudo apt-get install -y linux-headers-3.19.0-30-generic virtualbox-4.3
   - sudo apt-get install -y qemu-utils libvirt-bin libvirt-dev
   #- sudo apt-get install -y qemu-kvm libvirt-bin libvirt-dev
   #- sudo apt-get install -q virtualbox --fix-missing
@@ -26,8 +26,8 @@ script:
   - /tmp/TestingTravis/vbox.sh
   - virsh -V
   #- sudo VirtualBox & sleep 10s
-  - sudo virsh -c vbox:///system
-  - sudo virsh -c vbox:///session
+  #- sudo virsh -c vbox:///system
+  #- sudo virsh -c vbox:///session
   - wget http://iso.reactos.org/regtestcd/bootcdregtest-70637.iso -O /tmp/bootcdregtest-70637.iso
   - svn checkout svn://svn.reactos.org/project-tools/trunk/sysreg2 /tmp/sysreg2
   - cd /tmp/sysreg2 && make
