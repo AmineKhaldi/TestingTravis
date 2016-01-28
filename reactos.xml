@@ -34,5 +34,10 @@
     <!-- <input type='tablet' bus='usb'/> -->
     <input type='mouse' bus='ps2'/>
     <graphics type='vnc' port='5900' listen='0.0.0.0'/>
+    <video>
+      <model type='vga' vram='16384' heads='1'>
+        <acceleration accel3d='no' accel2d='no'/>
+      </model>
+    </video>
   </devices>
 </domain>
