@@ -27,7 +27,7 @@
       <mac address='00:16:3e:2e:dd:df'/>
       <source bridge='virbr0'/>
       <target dev='vnet0'/>
-      <model type='pcnet'/>
+      <model type='vlance'/>
     </interface>
     <serial type='pty'></serial>
     <console type='pty' ></console>
