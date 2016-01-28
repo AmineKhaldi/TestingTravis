@@ -15,7 +15,7 @@
   <on_crash>destroy</on_crash>
   <devices>
     <disk type='file' device='disk'>
-      <source file='/tmp/ros.img'/>
+      <source file='/tmp/ros.vmdk'/>
       <target dev='hda' bus='ide'/>
     </disk>
     <disk type='file' device='cdrom'>
