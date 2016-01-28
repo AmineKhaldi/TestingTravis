@@ -45,9 +45,10 @@ script:
   #- exit
   #- sudo dpkg -i libvirt-bin_1.2.2-0ubuntu13.1.16_amd64.deb libvirt0_1.2.2-0ubuntu13.1.16_amd64.deb
   #- qemu-img create -f vdi /tmp/ros.img 2000M
-  #- git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
-  #- chmod +x /tmp/TestingTravis/vbox.sh
-  #- /tmp/TestingTravis/vbox.sh
+  - wget https://download3.vmware.com/software/player/file/VMware-Player-6.0.2-1744117.x86_64.bundle -O /tmp/VMware.bundle
+  - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
+  - chmod +x /tmp/TestingTravis/vbox.sh
+  - /tmp/TestingTravis/vbox.sh
   #- sudo virsh define /tmp/TestingTravis/reactos.xml
   #- sudo virsh start ReactOS
   #- virsh -V
@@ -55,9 +56,8 @@ script:
   #- sudo VirtualBox & sleep 10s
   #- sudo virsh -c vbox:///system
   #- sudo virsh -c vbox:///session
-  - wget https://download3.vmware.com/software/player/file/VMware-Player-6.0.2-1744117.x86_64.bundle -O /tmp/VMware.bundle
-  - chmod +x ./vmware.sh
-  - sudo ./vmware.sh
+  #- chmod +x ./vmware.sh
+  #- sudo ./vmware.sh
   - sudo vmware-modconfig --console --install-all
   - exit
   - wget http://iso.reactos.org/regtestcd/bootcdregtest-70637.iso -O /tmp/bootcdregtest-70637.iso
