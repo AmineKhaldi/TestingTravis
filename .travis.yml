@@ -27,7 +27,7 @@ script:
   - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
   - chmod +x /tmp/TestingTravis/vbox.sh
   - /tmp/TestingTravis/vbox.sh
-  - sudo virsh define /tmp/TestingTravis/sysreg.xml
+  - sudo virsh define /tmp/TestingTravis/reactos.xml
   - sudo virsh start ReactOS
   #- virsh -V
   #- sudo VirtualBox & sleep 10s
