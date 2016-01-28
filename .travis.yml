@@ -6,14 +6,14 @@ env:
 #- LIBVIRT_DEBUG=1
 
 before_script:
-  #- sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" >> /etc/apt/sources.list.d/virtualbox.list'
-  #- wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
-  #- sudo apt-get update -qq
+  - sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" >> /etc/apt/sources.list.d/virtualbox.list'
+  - wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+  - sudo apt-get update -qq
   #- sudo apt-get install -y linux-headers-3.13.0-63-generic qemu libvirt-bin libvirt-dev virtualbox-5.0
   #- sudo apt-get install -y linux-headers-3.19.0-30-generic qemu libvirt-bin libvirt-dev virtualbox-5.0
-  #- sudo apt-get install -y linux-headers-3.19.0-30-generic virtualbox-4.3
+  - sudo apt-get install -y linux-headers-3.19.0-30-generic virtualbox-4.3
   #- sudo apt-get install -y qemu-utils libvirt-bin libvirt-dev
-  #- sudo apt-get install -y qemu-utils libvirt-dev
+  - sudo apt-get install -y qemu-utils libvirt-dev
   #- sudo apt-get install -y qemu-kvm libvirt-bin libvirt-dev
   #- sudo apt-get install -q virtualbox --fix-missing
 
@@ -25,9 +25,9 @@ compiler:
 script:
   #- sudo apt-get install -q linux-headers-3.13.0-63-generic
   #- sudo apt-get install -q virtualbox-5.0 --fix-missing
-  - sudo apt-get update -qq
+  #- sudo apt-get update -qq
   - sudo apt-get source -qq -y -d libvirt
-  - sudo apt-get build-dep -qq -y libvirt
+  - sudo apt-get build-dep -qq -y libvirt > /dev/null
   - dpkg-source -x libvirt*dsc
   - cd libvirt-1.2.2
   - sudo ./configure --with-vbox --disable-dependency-tracking --enable-expensive-tests=no --disable-expensive-tests --with-test-suite=no --without-test-suite --enable-silent-rules --disable-nls
@@ -39,7 +39,7 @@ script:
   #- sudo ldconfig
   #- sudo /etc/init.d/libvirt restart
   #- sudo service libvirt-bin start
-  - dpkg-buildpackage -us -uc -b -rfakeroot
+  - dpkg-buildpackage -us -uc -b -rfakeroot > /dev/null
   - cd ..
   #- ls
   #- exit
@@ -48,10 +48,10 @@ script:
   - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
   - chmod +x /tmp/TestingTravis/vbox.sh
   - /tmp/TestingTravis/vbox.sh
-  - sudo virsh define /tmp/TestingTravis/reactos.xml
-  - sudo virsh start ReactOS
-  - virsh -V
-  - exit
+  #- sudo virsh define /tmp/TestingTravis/reactos.xml
+  #- sudo virsh start ReactOS
+  #- virsh -V
+  #- exit
   #- sudo VirtualBox & sleep 10s
   #- sudo virsh -c vbox:///system
   #- sudo virsh -c vbox:///session
