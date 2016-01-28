@@ -25,8 +25,8 @@ script:
   #- sudo apt-get install -q linux-headers-3.13.0-63-generic
   #- sudo apt-get install -q virtualbox-5.0 --fix-missing
   - sudo apt-get update -qq
-  - sudo apt-get source -y -d libvirt
-  - sudo apt-get build-dep -y libvirt
+  - sudo apt-get source -qq -y -d libvirt
+  - sudo apt-get build-dep -qq -y libvirt
   - dpkg-source -x libvirt*dsc
   - cd libvirt-1.2.2
   - sudo ./configure --with-vbox --disable-dependency-tracking --enable-expensive-tests=no --disable-expensive-tests --with-test-suite=no --without-test-suite --enable-silent-rules --disable-nls
