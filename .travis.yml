@@ -1,7 +1,8 @@
 sudo: required
 dist: trusty
 
-#env:
+env:
+- MAKEFLAGS="-j3"
 #- LIBVIRT_DEBUG=1
 
 before_script:
@@ -33,16 +34,16 @@ script:
   #- sudo ./configure --help
   #- ./autogen.sh --system
   #- sudo make -j 2
-  - sudo make -j 2 distclean
+  - sudo make distclean > /dev/null
   #- sudo make -j 2 install
   #- sudo ldconfig
   #- sudo /etc/init.d/libvirt restart
   #- sudo service libvirt-bin start
   - dpkg-buildpackage -us -uc -b -rfakeroot
   - cd ..
-  - ls
-  - exit
-  - sudo dpkg -i libvirt-bin_xxxx.deb libvirt0_xxxx.deb
+  #- ls
+  #- exit
+  - sudo dpkg -i libvirt-bin_1.2.2-0ubuntu13.1.16_amd64.deb libvirt0_1.2.2-0ubuntu13.1.16_amd64.deb
   - qemu-img create -f vdi /tmp/ros.img 2000M
   - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
   - chmod +x /tmp/TestingTravis/vbox.sh
