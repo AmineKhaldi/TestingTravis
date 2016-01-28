@@ -1,5 +1,5 @@
 #!/usr/bin/expect -f
-spawn sudo /tmp/VMware.bundle --eulas-agreed --console
+spawn sudo /tmp/VMware.bundle --eulas-agreed --console --required
 expect "Would you like to check for product updates on startup? \[yes\]:" { send "yes\r" }
 
 #expect "Press Enter to proceed." { send "\r" }
