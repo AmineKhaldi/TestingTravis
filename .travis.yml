@@ -57,8 +57,8 @@ script:
   #- sudo virsh -c vbox:///session
   - wget https://download3.vmware.com/software/player/file/VMware-Player-6.0.2-1744117.x86_64.bundle -O /tmp/VMware.bundle
   - chmod +x /tmp/VMware.bundle
-  - sh /tmp/VMware.bundle --eulas-agreed
-  - vmware-modconfig --console --install-all
+  - sudo sh /tmp/VMware.bundle --eulas-agreed
+  - sudo vmware-modconfig --console --install-all
   - exit
   - wget http://iso.reactos.org/regtestcd/bootcdregtest-70637.iso -O /tmp/bootcdregtest-70637.iso
   - svn checkout svn://svn.reactos.org/project-tools/trunk/sysreg2 /tmp/sysreg2
