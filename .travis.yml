@@ -33,6 +33,7 @@ script:
   #- sudo ./configure --help
   #- ./autogen.sh --system
   - sudo make -j 2
+  - sudo make -j 2 distclean
   #- sudo make -j 2 install
   #- sudo ldconfig
   #- sudo /etc/init.d/libvirt restart
