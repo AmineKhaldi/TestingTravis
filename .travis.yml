@@ -33,13 +33,15 @@ script:
   #- sudo ./configure --help
   #- ./autogen.sh --system
   - sudo make -j 2
-  - sudo make -j 2 distclean
+  - sudo make -j 2 distclean --enable-silent-rules
   #- sudo make -j 2 install
   #- sudo ldconfig
   #- sudo /etc/init.d/libvirt restart
   #- sudo service libvirt-bin start
   - dpkg-buildpackage -us -uc -b -rfakeroot
   - cd ..
+  - ls
+  - exit
   - sudo dpkg -i libvirt-bin_xxxx.deb libvirt0_xxxx.deb
   - qemu-img create -f vdi /tmp/ros.img 2000M
   - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
