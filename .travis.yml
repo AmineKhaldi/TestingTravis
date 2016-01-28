@@ -23,6 +23,15 @@ compiler:
 script:
   #- sudo apt-get install -q linux-headers-3.13.0-63-generic
   #- sudo apt-get install -q virtualbox-5.0 --fix-missing
+  - sudo apt-get source -d libvirt
+  - sudo apt-get build-dep libvirt
+  - dpkg-source -x libvirt*dsc
+  - cd libvirt-1.2.2
+  - sudo ./configure --with-vbox
+  - sudo make distclean
+  - dpkg-buildpackage -us -uc -b -rfakeroot
+  - cd ..
+  - sudo dpkg -i libvirt-bin_xxxx.deb libvirt0_xxxx.deb
   - qemu-img create -f vdi /tmp/ros.img 2000M
   - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
   - chmod +x /tmp/TestingTravis/vbox.sh
