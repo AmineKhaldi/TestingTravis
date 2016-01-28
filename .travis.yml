@@ -52,6 +52,8 @@ script:
   - chmod +x /tmp/VMware-VIX.bundle
   - sudo /tmp/VMware.bundle --eulas-agreed --console --required
   - sudo /tmp/VMware-VIX.bundle --eulas-agreed --console --required
+  - /usr/bin/vmplayer -v
+  - exit
   - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
   #- chmod +x /tmp/TestingTravis/vbox.sh
   #- sudo /tmp/TestingTravis/vbox.sh
