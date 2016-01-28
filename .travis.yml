@@ -1,8 +1,8 @@
 sudo: required
 dist: trusty
 
-env:
-- LIBVIRT_DEBUG=1
+#env:
+#- LIBVIRT_DEBUG=1
 
 before_script:
   - sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" >> /etc/apt/sources.list.d/virtualbox.list'
@@ -35,6 +35,7 @@ script:
   - sudo make -j 2 install
   - sudo ldconfig
   - sudo /etc/init.d/libvirt restart
+  - sudo service libvirt-bin start
   #- dpkg-buildpackage -us -uc -b -rfakeroot
   #- cd ..
   #- sudo dpkg -i libvirt-bin_xxxx.deb libvirt0_xxxx.deb
@@ -45,6 +46,7 @@ script:
   - sudo virsh define /tmp/TestingTravis/reactos.xml
   - sudo virsh start ReactOS
   - virsh -V
+  - exit
   #- sudo VirtualBox & sleep 10s
   #- sudo virsh -c vbox:///system
   #- sudo virsh -c vbox:///session
