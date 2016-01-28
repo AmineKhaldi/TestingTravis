@@ -20,7 +20,7 @@ compiler:
 script:
   #- sudo apt-get install -q linux-headers-3.13.0-63-generic
   #- sudo apt-get install -q virtualbox-5.0 --fix-missing
-  - qemu-img create /tmp/ros.img 2000M
+  - qemu-img create -f vdi /tmp/ros.img 2000M
   - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
   - chmod +x /tmp/TestingTravis/vbox.sh
   - /tmp/TestingTravis/vbox.sh
