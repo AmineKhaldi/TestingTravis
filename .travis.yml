@@ -47,7 +47,6 @@ script:
   #- dpkg-buildpackage -us -uc -b -rfakeroot > /dev/null
   #- cd ..
   #- ls
-  #- exit
   #- sudo dpkg -i libvirt-bin_1.2.2-0ubuntu13.1.16_amd64.deb libvirt0_1.2.2-0ubuntu13.1.16_amd64.deb
   - qemu-img create -f vmdk /tmp/ros.img 2000M
   - sudo apt-get install -y expect
@@ -57,15 +56,13 @@ script:
   - chmod +x /tmp/VMware-VIX.bundle
   - sudo /tmp/VMware.bundle --eulas-agreed --console --required
   - sudo /tmp/VMware-VIX.bundle --eulas-agreed --console --required
-  - sudo /usr/bin/vmplayer -v
-  - exit
+  #- sudo /usr/bin/vmplayer -v
   - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
   #- chmod +x /tmp/TestingTravis/vbox.sh
   #- sudo /tmp/TestingTravis/vbox.sh
   #- sudo virsh define /tmp/TestingTravis/reactos.xml
   #- sudo virsh start ReactOS
   #- virsh -V
-  #- exit
   #- sudo VirtualBox & sleep 10s
   #- sudo virsh -c vbox:///system
   #- sudo virsh -c vbox:///session
