@@ -10,9 +10,9 @@ before_script:
   - sudo apt-get update -qq
   #- sudo apt-get install -y linux-headers-3.13.0-63-generic qemu libvirt-bin libvirt-dev virtualbox-5.0
   #- sudo apt-get install -y linux-headers-3.19.0-30-generic qemu libvirt-bin libvirt-dev virtualbox-5.0
-  #- sudo apt-get install -y linux-headers-3.19.0-30-generic virtualbox-4.3
+  - sudo apt-get install -y linux-headers-3.19.0-30-generic virtualbox-4.3
   #- sudo apt-get install -y qemu-utils libvirt-bin libvirt-dev
-  #- sudo apt-get install -y qemu-utils libvirt-dev
+  - sudo apt-get install -y qemu-utils libvirt-dev
   #- sudo apt-get install -y qemu-kvm libvirt-bin libvirt-dev
   #- sudo apt-get install -q virtualbox --fix-missing
 
@@ -33,6 +33,7 @@ script:
   #- sudo ./configure --help
   - sudo make -j 2
   - sudo make -j 2 install
+  - sudo ldconfig
   #- dpkg-buildpackage -us -uc -b -rfakeroot
   #- cd ..
   #- sudo dpkg -i libvirt-bin_xxxx.deb libvirt0_xxxx.deb
