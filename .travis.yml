@@ -29,7 +29,7 @@ script:
   - /tmp/TestingTravis/vbox.sh
   - sudo virsh define /tmp/TestingTravis/reactos.xml
   - sudo virsh start ReactOS
-  #- virsh -V
+  - virsh -V
   #- sudo VirtualBox & sleep 10s
   #- sudo virsh -c vbox:///system
   #- sudo virsh -c vbox:///session
