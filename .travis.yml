@@ -1,8 +1,8 @@
 sudo: required
 dist: trusty
 
-env:
-- MAKEFLAGS="-j3"
+#env:
+#- MAKEFLAGS="-j3"
 #- LIBVIRT_DEBUG=1
 
 before_script:
@@ -12,7 +12,7 @@ before_script:
   #- sudo apt-get install -y linux-headers-3.13.0-63-generic qemu libvirt-bin libvirt-dev virtualbox-5.0
   #- sudo apt-get install -y linux-headers-3.19.0-30-generic qemu libvirt-bin libvirt-dev virtualbox-5.0
   #- sudo apt-get install -y linux-headers-3.19.0-30-generic virtualbox-4.3
-  #- sudo apt-get install -y qemu-utils libvirt-bin libvirt-dev
+  - sudo apt-get install -y qemu-utils libvirt-bin libvirt-dev
   #- sudo apt-get install -y qemu-utils libvirt-dev
   #- sudo apt-get install -y qemu-kvm libvirt-bin libvirt-dev
   #- sudo apt-get install -q virtualbox --fix-missing
@@ -44,13 +44,14 @@ script:
   #- ls
   #- exit
   #- sudo dpkg -i libvirt-bin_1.2.2-0ubuntu13.1.16_amd64.deb libvirt0_1.2.2-0ubuntu13.1.16_amd64.deb
-  #- qemu-img create -f vdi /tmp/ros.img 2000M
+  - qemu-img create -f vmdk /tmp/ros.img 2000M
   - sudo apt-get install -y expect
   - wget https://download3.vmware.com/software/player/file/VMware-Player-6.0.2-1744117.x86_64.bundle -O /tmp/VMware.bundle
   - chmod +x /tmp/VMware.bundle
+  - sudo /tmp/VMware.bundle --eulas-agreed --console --required
   - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
-  - chmod +x /tmp/TestingTravis/vbox.sh
-  - sudo /tmp/TestingTravis/vbox.sh
+  #- chmod +x /tmp/TestingTravis/vbox.sh
+  #- sudo /tmp/TestingTravis/vbox.sh
   #- sudo virsh define /tmp/TestingTravis/reactos.xml
   #- sudo virsh start ReactOS
   #- virsh -V
@@ -60,8 +61,7 @@ script:
   #- sudo virsh -c vbox:///session
   #- chmod +x ./vmware.sh
   #- sudo ./vmware.sh
-  - sudo vmware-modconfig --console --install-all
-  - exit
+  #- sudo vmware-modconfig --console --install-all
   - wget http://iso.reactos.org/regtestcd/bootcdregtest-70637.iso -O /tmp/bootcdregtest-70637.iso
   - svn checkout svn://svn.reactos.org/project-tools/trunk/sysreg2 /tmp/sysreg2
   - cd /tmp/sysreg2 && make

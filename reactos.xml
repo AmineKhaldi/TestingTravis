@@ -1,4 +1,4 @@
-<domain type='vbox'>
+<domain type='vmware'>
   <name>ReactOS</name>
   <uuid>0ab69219-58c2-1e5c-6beb-fb29db74b0ae</uuid>
   <memory>524288</memory>
@@ -34,10 +34,5 @@
     <!-- <input type='tablet' bus='usb'/> -->
     <input type='mouse' bus='ps2'/>
     <graphics type='vnc' port='5900' listen='0.0.0.0'/>
-    <video>
-      <model type='vga' vram='16384' heads='1'>
-        <acceleration accel3d='no' accel2d='no'/>
-      </model>
-    </video>
   </devices>
 </domain>
