@@ -29,7 +29,7 @@ script:
   - sudo apt-get build-dep -y libvirt
   - dpkg-source -x libvirt*dsc
   - cd libvirt-1.2.2
-  - sudo ./configure --with-vbox --disable-dependency-tracking --enable-expensive-tests=no --with-test-suite=no
+  - sudo ./configure --with-vbox --disable-dependency-tracking --enable-expensive-tests=no --disable-expensive-tests --with-test-suite=no --without-test-suite --enable-silent-rules --disable-nls
   #- sudo ./configure --help
   - sudo make -j 2 distclean
   - dpkg-buildpackage -us -uc -b -rfakeroot
