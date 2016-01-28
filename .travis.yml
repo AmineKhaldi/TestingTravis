@@ -10,7 +10,7 @@ before_script:
   - sudo apt-get update -qq
   #- sudo apt-get install -y linux-headers-3.13.0-63-generic qemu libvirt-bin libvirt-dev virtualbox-5.0
   #- sudo apt-get install -y linux-headers-3.19.0-30-generic qemu libvirt-bin libvirt-dev virtualbox-5.0
-  - sudo apt-get install -y linux-headers-3.19.0-30-generic virtualbox-4.3
+  - sudo apt-get install -y linux-headers-3.19.0-30-generic virtualbox-4.2
   - sudo apt-get install -y qemu-utils libvirt-bin libvirt-dev
   #- sudo apt-get install -y qemu-kvm libvirt-bin libvirt-dev
   #- sudo apt-get install -q virtualbox --fix-missing
