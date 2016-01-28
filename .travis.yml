@@ -5,14 +5,14 @@ dist: trusty
 #- LIBVIRT_DEBUG=1
 
 before_script:
-  - sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" >> /etc/apt/sources.list.d/virtualbox.list'
-  - wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
-  - sudo apt-get update -qq
+  #- sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" >> /etc/apt/sources.list.d/virtualbox.list'
+  #- wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+  #- sudo apt-get update -qq
   #- sudo apt-get install -y linux-headers-3.13.0-63-generic qemu libvirt-bin libvirt-dev virtualbox-5.0
   #- sudo apt-get install -y linux-headers-3.19.0-30-generic qemu libvirt-bin libvirt-dev virtualbox-5.0
-  - sudo apt-get install -y linux-headers-3.19.0-30-generic virtualbox-4.3
+  #- sudo apt-get install -y linux-headers-3.19.0-30-generic virtualbox-4.3
   #- sudo apt-get install -y qemu-utils libvirt-bin libvirt-dev
-  - sudo apt-get install -y qemu-utils libvirt-dev
+  #- sudo apt-get install -y qemu-utils libvirt-dev
   #- sudo apt-get install -y qemu-kvm libvirt-bin libvirt-dev
   #- sudo apt-get install -q virtualbox --fix-missing
 
@@ -29,17 +29,17 @@ script:
   - sudo apt-get build-dep -y libvirt
   - dpkg-source -x libvirt*dsc
   - cd libvirt-1.2.2
-  #- sudo ./configure --with-vbox --disable-dependency-tracking --enable-expensive-tests=no --disable-expensive-tests --with-test-suite=no --without-test-suite --enable-silent-rules --disable-nls
+  - sudo ./configure --with-vbox --disable-dependency-tracking --enable-expensive-tests=no --disable-expensive-tests --with-test-suite=no --without-test-suite --enable-silent-rules --disable-nls
   #- sudo ./configure --help
-  - ./autogen.sh --system
+  #- ./autogen.sh --system
   - sudo make -j 2
-  - sudo make -j 2 install
-  - sudo ldconfig
-  - sudo /etc/init.d/libvirt restart
-  - sudo service libvirt-bin start
-  #- dpkg-buildpackage -us -uc -b -rfakeroot
-  #- cd ..
-  #- sudo dpkg -i libvirt-bin_xxxx.deb libvirt0_xxxx.deb
+  #- sudo make -j 2 install
+  #- sudo ldconfig
+  #- sudo /etc/init.d/libvirt restart
+  #- sudo service libvirt-bin start
+  - dpkg-buildpackage -us -uc -b -rfakeroot
+  - cd ..
+  - sudo dpkg -i libvirt-bin_xxxx.deb libvirt0_xxxx.deb
   - qemu-img create -f vdi /tmp/ros.img 2000M
   - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
   - chmod +x /tmp/TestingTravis/vbox.sh
