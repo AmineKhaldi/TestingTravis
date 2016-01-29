@@ -31,8 +31,9 @@
     </interface>
     <!--<serial type='pty'></serial>
     <console type='pty' ></console>-->
-    <serial type='pty'>
-      <target port='0'/>
+    <serial type="pty">
+      <source path="/dev/pts/3"/>
+      <target port="0"/>
     </serial>
     <console type='stdio'>
       <target port='1'/>

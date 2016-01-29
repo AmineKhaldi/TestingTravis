@@ -69,6 +69,7 @@ script:
   #- sudo /tmp/VMware.bundle --eulas-agreed --console --required
   #- sudo /tmp/VMware-VIX.bundle --eulas-agreed --console --required
   #- sudo /usr/bin/vmplayer -v
+  - wget http://iso.reactos.org/regtestcd/bootcdregtest-70637.iso -O /tmp/bootcdregtest-70637.iso
   - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
   - chmod +x /tmp/TestingTravis/vbox.sh
   - sudo sh /tmp/TestingTravis/vbox.sh
@@ -82,7 +83,6 @@ script:
   #- chmod +x ./vmware.sh
   #- sudo ./vmware.sh
   #- sudo vmware-modconfig --console --install-all
-  - wget http://iso.reactos.org/regtestcd/bootcdregtest-70637.iso -O /tmp/bootcdregtest-70637.iso
   - svn checkout svn://svn.reactos.org/project-tools/trunk/sysreg2 /tmp/sysreg2
   - cd /tmp/sysreg2 && make
   - sudo /tmp/sysreg2/sysreg2 /tmp/TestingTravis/sysreg.xml
