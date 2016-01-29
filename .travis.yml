@@ -18,7 +18,7 @@ before_script:
   #- sudo apt-get install -y linux-headers-3.19.0-30-generic qemu libvirt-bin libvirt-dev virtualbox-5.0
   #- sudo apt-get install -y linux-headers-3.19.0-30-generic virtualbox-4.3
   #- sudo apt-get install -y qemu-utils libvirt-bin libvirt-dev openssl
-  #- sudo apt-get install -y qemu-utils libvirt-dev
+  - sudo apt-get install -y qemu-utils libvirt-dev
   #- sudo apt-get install -y qemu-kvm libvirt-bin libvirt-dev
   #- sudo apt-get install -q virtualbox --fix-missing
 
@@ -40,7 +40,7 @@ script:
   - tar -xzf /tmp/libvirt-1.3.1.tar.gz -C /tmp/
   - sudo apt-get install -qq -y libxml2-dev libgnutls-dev libdevmapper-dev libcurl4-gnutls-dev libpciaccess-dev libnl-dev
   - cd /tmp/libvirt-1.3.1
-  - ./configure --prefix=/usr --with-vbox --with-esx --without-xen --without-qemu --disable-dependency-tracking --enable-expensive-tests=no --disable-expensive-tests --with-test-suite=no --without-test-suite --enable-silent-rules --disable-nls
+  - ./configure --prefix=/usr --with-vbox --with-esx --without-xen --without-qemu --without-lxc --without-openvz --without-uml --disable-dependency-tracking --enable-expensive-tests=no --disable-expensive-tests --with-test-suite=no --without-test-suite --enable-silent-rules --disable-nls
   - make -j 3
   - sudo make install
   #- sudo ./configure --help
@@ -55,7 +55,6 @@ script:
   #- cd ..
   #- sudo dpkg -i libvirt-bin_1.2.2-0ubuntu13.1.16_amd64.deb libvirt0_1.2.2-0ubuntu13.1.16_amd64.deb
   - virsh -V
-  - exit
   - qemu-img create -f vmdk /tmp/ros.vmdk 2000M
   #- sudo apt-get install -y expect
   - wget https://download3.vmware.com/software/player/file/VMware-Player-6.0.6-2700073.x86_64.bundle -O /tmp/VMware.bundle
@@ -81,5 +80,5 @@ script:
   - svn checkout svn://svn.reactos.org/project-tools/trunk/sysreg2 /tmp/sysreg2
   - cd /tmp/sysreg2 && make
   - sudo /tmp/sysreg2/sysreg2 /tmp/TestingTravis/sysreg.xml
-  - /usr/bin/vmrun -T player list
-  - cd /tmp && ls
+  #- /usr/bin/vmrun -T player list
+  #- cd /tmp && ls
