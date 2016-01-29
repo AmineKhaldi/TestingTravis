@@ -74,8 +74,8 @@ script:
   - sudo sh /tmp/TestingTravis/vbox.sh
   - virsh -V
   - sudo virsh define /tmp/TestingTravis/vbox.xml
+  - sudo virsh start ReactOS
   #- sudo /usr/bin/vmplayer -v
-  #- sudo virsh start ReactOS
   #- sudo VirtualBox & sleep 10s
   #- sudo virsh -c vbox:///system
   #- sudo virsh -c vbox:///session
