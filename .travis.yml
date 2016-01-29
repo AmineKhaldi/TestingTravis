@@ -46,7 +46,7 @@ script:
   - sudo make install
   - sudo ldconfig
   - sudo /usr/sbin/libvirtd -d
-  - sudo virsh net-list
+  #- sudo virsh net-list
   #- sudo service libvirtd restart
   #- sudo /etc/init.d/libvirt restart
   #- sudo ./configure --help
@@ -60,7 +60,7 @@ script:
   #- dpkg-buildpackage -us -uc -b -rfakeroot > /dev/null
   #- cd ..
   #- sudo dpkg -i libvirt-bin_1.2.2-0ubuntu13.1.16_amd64.deb libvirt0_1.2.2-0ubuntu13.1.16_amd64.deb
-  - virsh -V
+  #- virsh -V
   - qemu-img create -f vmdk /tmp/ros.vmdk 2000M
   #- sudo apt-get install -y expect
   - wget https://download3.vmware.com/software/player/file/VMware-Player-6.0.6-2700073.x86_64.bundle -O /tmp/VMware.bundle
@@ -74,8 +74,7 @@ script:
   #- chmod +x /tmp/TestingTravis/vbox.sh
   #- sudo /tmp/TestingTravis/vbox.sh
   - sudo /usr/bin/vmplayer -v
-  - sudo virsh define /tmp/TestingTravis/reactos.xml
-  - exit
+  #- sudo virsh define /tmp/TestingTravis/reactos.xml
   #- sudo virsh start ReactOS
   #- sudo VirtualBox & sleep 10s
   #- sudo virsh -c vbox:///system
