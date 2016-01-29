@@ -1,7 +1,7 @@
 <settings vm="ReactOS" file="/tmp/TestingTravis/reactos.xml">
 	<general>
 		<!-- Use KVM, VMwarePlayer or VirtualBox -->
-		<vm type="VMwarePlayer"/>
+		<vm type="vmwareplayer" serial="/tmp/vmware.serial"/>
 
 		<!-- kill the VM after n milliseconds without debug msg -->
 		<timeout ms="40000"/>
