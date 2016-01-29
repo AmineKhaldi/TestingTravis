@@ -46,8 +46,9 @@ script:
   - sudo make install
   - sudo ldconfig
   - sudo virsh net-list
-  - sudo service libvirtd restart
-  - sudo /etc/init.d/libvirt restart
+  #- sudo service libvirtd restart
+  #- sudo /etc/init.d/libvirt restart
+  - /usr/sbin libvirtd -d
   #- sudo ./configure --help
   #- ./autogen.sh --system
   #- sudo make -j 2
