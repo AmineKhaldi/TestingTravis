@@ -46,7 +46,6 @@ script:
   #- sudo service libvirt-bin start
   #- dpkg-buildpackage -us -uc -b -rfakeroot > /dev/null
   #- cd ..
-  #- ls
   #- sudo dpkg -i libvirt-bin_1.2.2-0ubuntu13.1.16_amd64.deb libvirt0_1.2.2-0ubuntu13.1.16_amd64.deb
   - qemu-img create -f vmdk /tmp/ros.vmdk 2000M
   #- sudo apt-get install -y expect
@@ -73,3 +72,5 @@ script:
   - svn checkout svn://svn.reactos.org/project-tools/trunk/sysreg2 /tmp/sysreg2
   - cd /tmp/sysreg2 && make
   - sudo /tmp/sysreg2/sysreg2 /tmp/TestingTravis/sysreg.xml
+  - /usr/bin/vmrun -T player start
+  - cd /tmp && list
