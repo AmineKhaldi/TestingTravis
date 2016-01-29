@@ -4,7 +4,7 @@ dist: trusty
 env:
 #  - export DISPLAY=:0
 - MAKEFLAGS="-j3"
-#- LIBVIRT_DEBUG=1
+- LIBVIRT_DEBUG=1
 
 before_install:
   #- "export DISPLAY=:99.0"
@@ -44,7 +44,7 @@ script:
   - tar -xzf /tmp/libvirt-1.3.1.tar.gz -C /tmp/
   - cd /tmp/libvirt-1.3.1
   #- ./configure --prefix=/usr --with-vbox --with-esx --disable-dependency-tracking --enable-expensive-tests=no --disable-expensive-tests --with-test-suite=no --without-test-suite --enable-silent-rules --disable-nls
-  - ./configure --prefix=/usr --with-vbox --without-xen --without-qemu --without-lxc --without-uml --without-openviz --enable-silent-rules --disable-nls --disable-dependency-tracking --without-test-suite --disable-dependency-tracking
+  - ./configure --prefix=/usr --with-vbox --without-xen --without-qemu --without-lxc --without-uml --without-openvz --without-esx --without-vmware --enable-silent-rules --disable-nls --disable-dependency-tracking --without-test-suite
   - make -j 3
   - sudo make install -j 3
   - sudo ldconfig
@@ -84,10 +84,10 @@ script:
   #- chmod +x ./vmware.sh
   #- sudo ./vmware.sh
   #- sudo vmware-modconfig --console --install-all
-  - cd /tmp/sysreg2 && make
-  - sudo /tmp/sysreg2/sysreg2 /tmp/TestingTravis/sysreg.xml
+  #- cd /tmp/sysreg2 && make
+  #- sudo /tmp/sysreg2/sysreg2 /tmp/TestingTravis/sysreg.xml
+  - sudo virsh start ReactOS &
   - sudo virsh console &
-  - sudo virsh start ReactOS
   #- /usr/bin/vmrun -T player list
   #- cd /tmp && ls
   #- sudo /usr/bin/vmrun -T player start /tmp/ReactOS.vmx
