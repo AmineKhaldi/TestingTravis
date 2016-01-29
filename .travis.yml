@@ -2,9 +2,9 @@ sudo: required
 dist: trusty
 
 env:
+  - LIBVIRT_DEBUG=1
 #  - export DISPLAY=:0
-- MAKEFLAGS="-j3"
-- LIBVIRT_DEBUG=1
+#- MAKEFLAGS="-j3"
 
 before_install:
   #- "export DISPLAY=:99.0"
