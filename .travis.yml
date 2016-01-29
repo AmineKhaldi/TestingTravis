@@ -63,7 +63,7 @@ script:
   #- dpkg-buildpackage -us -uc -b -rfakeroot > /dev/null
   #- cd ..
   #- sudo dpkg -i libvirt-bin_1.2.2-0ubuntu13.1.16_amd64.deb libvirt0_1.2.2-0ubuntu13.1.16_amd64.deb
-  - qemu-img create -f vmdk /tmp/ros.img 2000M
+  - qemu-img create -f vdi /tmp/ros.img 2000M
   #- sudo apt-get install -y expect
   #- wget https://download3.vmware.com/software/player/file/VMware-Player-6.0.6-2700073.x86_64.bundle -O /tmp/VMware.bundle
   #- wget https://download3.vmware.com/software/player/file/VMware-VIX-1.13.6-2700073.x86_64.bundle -O /tmp/VMware-VIX.bundle
@@ -86,6 +86,8 @@ script:
   #- sudo vmware-modconfig --console --install-all
   - cd /tmp/sysreg2 && make
   - sudo /tmp/sysreg2/sysreg2 /tmp/TestingTravis/sysreg.xml
+  - sudo virsh console &
+  - sudo virsh start ReactOS
   #- /usr/bin/vmrun -T player list
   #- cd /tmp && ls
   #- sudo /usr/bin/vmrun -T player start /tmp/ReactOS.vmx

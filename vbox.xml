@@ -1,14 +1,13 @@
-<domain type='vbox'>
+<domain type='vbox' id='1'>
   <name>ReactOS</name>
   <uuid>0ab69219-58c2-1e5c-6beb-fb29db74b0ae</uuid>
-  <memory>524288</memory>
+  <memory>2097152</memory>
   <vcpu>1</vcpu>
   <os>
     <type>hvm</type>
-    <boot dev='cdrom'/>
+    <boot dev='hd'/>
   </os>
-  <features>
-  </features>
+  <features><acpi/></features>
   <clock offset='localtime'/>
   <on_poweroff>destroy</on_poweroff>
   <on_reboot>destroy</on_reboot>
@@ -26,11 +25,13 @@
     <interface type='bridge'>
       <mac address='00:16:3e:2e:dd:df'/>
       <source bridge='virbr0'/>
-      <target dev='vnet0'/>
-      <model type='pcnet'/>
+      <!-- <target dev='vnet0'/>
+      <model type='pcnet'/> -->
     </interface>
-    <!--<serial type='pty'></serial>
-    <console type='pty' ></console>-->
+    <!--
+    <serial type='pty'></serial>
+    <console type='pty' ></console>
+    -->
     <serial type='pipe' data.tcp.listen='1'>
       <source path='/tmp/vbox.serial'/>
       <target port='0'/>
@@ -39,6 +40,10 @@
       <source path='/tmp/vbox.serial'/>
       <target type='serial' port='0'/>
     </console>
+    <serial type="dev">
+      <source path="/dev/ttyS0"/>
+      <target port="1"/>
+    </serial>
     <input type='mouse' bus='ps2'/>
     <!--<graphics type='vnc' port='5900' listen='0.0.0.0'/>-->
   </devices>
