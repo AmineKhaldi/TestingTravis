@@ -45,6 +45,9 @@ script:
   - make -j 3
   - sudo make install
   - sudo ldconfig
+  - sudo virsh net-list
+  - sudo service libvirtd restart
+  - sudo /etc/init.d/libvirt restart
   #- sudo ./configure --help
   #- ./autogen.sh --system
   #- sudo make -j 2
@@ -71,6 +74,7 @@ script:
   #- sudo /tmp/TestingTravis/vbox.sh
   - sudo /usr/bin/vmplayer -v
   - sudo virsh define /tmp/TestingTravis/reactos.xml
+  - exit
   #- sudo virsh start ReactOS
   #- sudo VirtualBox & sleep 10s
   #- sudo virsh -c vbox:///system
