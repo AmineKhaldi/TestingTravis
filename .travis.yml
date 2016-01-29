@@ -89,4 +89,4 @@ script:
   - /usr/bin/vmrun -T player list
   - cd /tmp && ls
   - sudo /usr/bin/vmrun -T player start /tmp/ReactOS.vmx
-  - cat /tmp/ReactOS.vmx
+  - sudo cat /tmp/ReactOS.vmx
