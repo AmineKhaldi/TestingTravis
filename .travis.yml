@@ -86,5 +86,5 @@ script:
   - svn checkout svn://svn.reactos.org/project-tools/trunk/sysreg2 /tmp/sysreg2
   - cd /tmp/sysreg2 && make
   - sudo /tmp/sysreg2/sysreg2 /tmp/TestingTravis/sysreg.xml
-  #- /usr/bin/vmrun -T player list
-  #- cd /tmp && ls
+  - /usr/bin/vmrun -T player list
+  - cd /tmp && ls
