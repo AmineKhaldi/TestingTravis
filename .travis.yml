@@ -87,6 +87,7 @@ script:
   #- sudo vmware-modconfig --console --install-all
   #- cd /tmp/sysreg2 && make
   #- sudo /tmp/sysreg2/sysreg2 /tmp/TestingTravis/sysreg.xml
+  - sudo virsh capabilities
   - sudo virsh list --all
   - sudo virsh start ReactOS --console
   #- /usr/bin/vmrun -T player list
