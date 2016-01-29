@@ -44,6 +44,7 @@ script:
   - ./configure --prefix=/usr --with-vbox --enable-silent-rules --disable-nls --disable-dependency-tracking
   - make -j 3
   - sudo make install
+  - sudo ldconfig
   #- sudo ./configure --help
   #- ./autogen.sh --system
   #- sudo make -j 2
