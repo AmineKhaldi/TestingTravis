@@ -1,12 +1,13 @@
 sudo: required
 dist: trusty
 
-env:
-  - LIBVIRT_DEBUG=1
+#env:
 #  - export DISPLAY=:0
 #- MAKEFLAGS="-j3"
 
 before_install:
+  - export VIRSH_DEBUG=0
+  - export LIBVIRT_DEBUG=1
   #- "export DISPLAY=:99.0"
   #- "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
 
@@ -86,10 +87,8 @@ script:
   #- sudo vmware-modconfig --console --install-all
   #- cd /tmp/sysreg2 && make
   #- sudo /tmp/sysreg2/sysreg2 /tmp/TestingTravis/sysreg.xml
-  - sudo virsh start ReactOS &
-  - sleep 10s
   - sudo virsh list --all
-  - sudo virsh console ReactOS
+  - sudo virsh start ReactOS --console
   #- /usr/bin/vmrun -T player list
   #- cd /tmp && ls
   #- sudo /usr/bin/vmrun -T player start /tmp/ReactOS.vmx
