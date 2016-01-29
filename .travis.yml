@@ -59,7 +59,8 @@ script:
   - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
   #- chmod +x /tmp/TestingTravis/vbox.sh
   #- sudo /tmp/TestingTravis/vbox.sh
-  #- sudo virsh define /tmp/TestingTravis/reactos.xml
+  - sudo /usr/bin/vmplayer -v
+  - sudo virsh define /tmp/TestingTravis/reactos.xml
   #- sudo virsh start ReactOS
   #- virsh -V
   #- sudo VirtualBox & sleep 10s
@@ -72,5 +73,5 @@ script:
   - svn checkout svn://svn.reactos.org/project-tools/trunk/sysreg2 /tmp/sysreg2
   - cd /tmp/sysreg2 && make
   - sudo /tmp/sysreg2/sysreg2 /tmp/TestingTravis/sysreg.xml
-  - /usr/bin/vmrun -T player start
-  - cd /tmp && list
+  - /usr/bin/vmrun -T player list
+  - cd /tmp && ls
