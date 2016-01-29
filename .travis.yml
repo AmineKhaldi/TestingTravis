@@ -87,7 +87,7 @@ script:
   #- cd /tmp/sysreg2 && make
   #- sudo /tmp/sysreg2/sysreg2 /tmp/TestingTravis/sysreg.xml
   - sudo virsh start ReactOS &
-  - sudo virsh console &
+  - sudo virsh console ReactOS
   #- /usr/bin/vmrun -T player list
   #- cd /tmp && ls
   #- sudo /usr/bin/vmrun -T player start /tmp/ReactOS.vmx
