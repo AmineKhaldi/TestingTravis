@@ -72,7 +72,7 @@ script:
   #- sudo /usr/bin/vmplayer -v
   - git clone --depth=50 --branch=master https://github.com/AmineKhaldi/TestingTravis.git /tmp/TestingTravis
   - chmod +x /tmp/TestingTravis/vbox.sh
-  - sudo /tmp/TestingTravis/vbox.sh
+  - sudo sh /tmp/TestingTravis/vbox.sh
   #- sudo /usr/bin/vmplayer -v
   #- sudo virsh define /tmp/TestingTravis/reactos.xml
   #- sudo virsh start ReactOS
